@@ -1,0 +1,207 @@
+<div class="jumbotron">
+    [% IF name == 'sauerei' %]
+    <div class="ribbon">
+        RIP
+    </div>
+    [% END %]
+    <h1>[% name %]</h1>
+    <p>autism at its best</p>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            General information
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <td>
+                        <b>First login:</b>
+                    </td>
+                    <td>
+                        [% info.first %]
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <b>Last login:</b>
+                    </td>
+                    <td>
+                        [% info.last %]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Hours:</b>
+                    </td>
+                    <td>
+                        [% info.time %]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+[% IF info.clan %]
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Clan
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <td>
+                        <b>Clan:</b>
+                    </td>
+                    <td>
+                        [% info.clan %]
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <b>Tag:</b>
+                    </td>
+                    <td>
+                        [% info.tag %]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Deaths:</b>
+                    </td>
+                    <td>
+                        [% info.deaths %]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+[% END %]
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Statistics
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Destroyed
+                            </th>
+                            <th>
+                                #
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH block IN destroyed %]
+                        <tr>
+                            <td>
+                                <div class="icon items-21-[% block.type %]-[% block.data %]"></div>
+                                <!-- [% block.type %]:[% block.data %] -->
+                            </td>
+                            <td>
+                                [% block.num %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Placed
+                            </th>
+                            <th>
+                                #
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH block IN placed %]
+                        <tr>
+                            <td>
+                                <div class="icon items-21-[% block.type %]-[% block.data %]"></div>
+                                <!-- [% block.type %]:[% block.data %] -->
+                            </td>
+                            <td>
+                                [% block.num %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">    
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Victim:
+                            </th>
+                            <th>
+                                #
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN kills %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.kills %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Murderer:
+                            </th>
+                            <th>
+                                #
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN murders %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.murdered %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            <!-- <div class="icon items-21-1-0"></div> -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+<div class="jumbotron">
+    <h1>Autism highscore</h1>
+    <p>See how mentally challenged you really are</p>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Server information
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <td>
+                        Server name
+                    </td>
+                    <td>
+                        [% map %]
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Created
+                    </td>
+                    <td>
+                        [% created %]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Registered Players
+                    </td>
+                    <td>
+                        [% players %]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total played hours
+                    </td>
+                    <td>
+                        [% total.total_hours %]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Player statistics
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">    
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name:
+                            </th>
+                            <th>
+                                Block changes
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN actions %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.actions %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name:
+                            </th>
+                            <th>
+                                Hours played
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN hours %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.num %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name:
+                            </th>
+                            <th>
+                                Murdered
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN murders %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.murdered %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name:
+                            </th>
+                            <th>
+                                Kills
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [% FOREACH player IN kills %]
+                        <tr>
+                            <td>
+                                <a href="?view=player&name=[% player.name %]">[% player.name %]</a>
+                            </td>
+                            <td>
+                                [% player.kills %]
+                            </td>
+                        </tr>
+                        [% END %]
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
